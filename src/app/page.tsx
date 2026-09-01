@@ -2,10 +2,10 @@ import { catalog, categories } from "@/lib/catalog";
 import { MetricsBar } from "@/components/MetricsBar";
 
 const categoryStyles: Record<string, { bg: string; border: string; dot: string; accent: string }> = {
-  text: { bg: "from-indigo-50 to-violet-50", border: "border-indigo-200", dot: "bg-indigo-600", accent: "text-indigo-700" },
-  image: { bg: "from-fuchsia-50 to-pink-50", border: "border-fuchsia-200", dot: "bg-fuchsia-600", accent: "text-fuchsia-700" },
-  video: { bg: "from-cyan-50 to-blue-50", border: "border-cyan-200", dot: "bg-cyan-600", accent: "text-cyan-700" },
-  audio: { bg: "from-amber-50 to-orange-50", border: "border-amber-200", dot: "bg-amber-600", accent: "text-amber-700" },
+  text: { bg: "from-white to-slate-50", border: "border-slate-200", dot: "bg-[#0A2540]", accent: "text-slate-700" },
+  image: { bg: "from-white to-slate-50", border: "border-slate-200", dot: "bg-[#0A2540]", accent: "text-slate-700" },
+  video: { bg: "from-white to-slate-50", border: "border-slate-200", dot: "bg-[#0A8A74]", accent: "text-slate-700" },
+  audio: { bg: "from-white to-slate-50", border: "border-slate-200", dot: "bg-[#0A2540]", accent: "text-slate-700" },
 };
 
 export default function Home() {

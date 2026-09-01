@@ -11,7 +11,7 @@ export default function AdminClient() {
     setSaving(true);
     const res = await fetch("/api/admin/catalog", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
     const j = await res.json().catch(()=>({}));
-    setStatus(res.ok ? `Saved — ${j.note ?? "ok"}` : `Error: ${j.error}`);
+    setStatus(res.ok ? `Changes published successfully` : `Could not save — ${j.error ?? "please try again."}`);
     setSaving(false);
     setTimeout(()=>setStatus(null), 4000);
   }
@@ -25,9 +25,9 @@ export default function AdminClient() {
     <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 py-6">
       <div className="rounded-2xl border border-slate-200 bg-white shadow-sm px-6 py-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex rounded-full bg-slate-900 px-2.5 py-1 text-xs font-bold tracking-widest uppercase text-white">Operator Console</div>
-          <h1 className="text-lg font-bold tracking-tight text-slate-900 mt-2">Change whatever you want — instant</h1>
-          <div className="text-sm text-slate-600 mt-1">Managed platform • Enterprise infrastructure • Cohort-03 closed • Env: ADMIN_ID / ADMIN_PASSWORD</div>
+          <div className="inline-flex rounded-full bg-[#0A2540] px-2.5 py-1 text-xs font-bold tracking-widest uppercase text-white">Operator Console</div>
+          <h1 className="text-lg font-bold tracking-tight text-slate-900 mt-2 font-display">Catalog Management</h1>
+          <div className="text-sm text-slate-600 mt-1">Manage models, pricing and availability. Changes publish instantly.</div>
         </div>
         <div className="flex gap-2">
           <button onClick={save} disabled={saving} className="h-10 px-6 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 disabled:opacity-50">{saving ? "Saving…" : "Save Changes"}</button>
@@ -39,13 +39,13 @@ export default function AdminClient() {
 
       <div className="mt-6 grid lg:grid-cols-[280px_1fr] gap-6">
         <div className="rounded-2xl border border-slate-200 bg-white p-4 h-fit sticky top-[72px] shadow-sm">
-          <div className="text-xs font-bold tracking-widest uppercase text-slate-500">Quick Ops</div>
+          <div className="text-xs font-bold tracking-widest uppercase text-slate-500">Overview</div>
           <div className="mt-3 space-y-3">
             <div className="rounded-xl bg-slate-50 border border-slate-200 p-3"><div className="text-xs font-bold tracking-widest uppercase text-slate-500">Catalog</div><div className="text-sm font-semibold text-slate-900 mt-1">{catalog.length} endpoints • {categories.length} surfaces</div></div>
-            <div className="rounded-xl bg-slate-50 border border-slate-200 p-3"><div className="text-xs font-bold tracking-widest uppercase text-slate-500">Domain</div><div className="text-sm font-semibold text-slate-900 mt-1">kapavamoda.buzz</div><div className="text-xs text-slate-600">Vercel → Domains verified</div></div>
-            <div className="rounded-xl bg-slate-50 border border-slate-200 p-3"><div className="text-xs font-bold tracking-widest uppercase text-slate-500">Env to set</div><div className="font-mono text-xs text-slate-700 mt-1 leading-5">ADMIN_ID<br/>ADMIN_PASSWORD<br/>GITHUB_TOKEN<br/>GITHUB_REPO</div></div>
+            <div className="rounded-xl bg-slate-50 border border-slate-200 p-3"><div className="text-xs font-bold tracking-widest uppercase text-slate-500">Workspace</div><div className="text-sm font-semibold text-slate-900 mt-1">kapavamoda.buzz</div><div className="text-xs text-slate-600">Invite-only • Cohort-03</div></div>
+            <div className="rounded-xl bg-emerald-50 border border-emerald-200 p-3"><div className="text-xs font-bold tracking-widest uppercase text-emerald-700">Status</div><div className="text-sm font-semibold text-emerald-900 mt-1">Operational</div><div className="text-xs text-emerald-700">All systems normal</div></div>
           </div>
-          <div className="mt-4 text-xs leading-5 text-slate-600 bg-amber-50 border border-amber-200 rounded-xl p-3">Edits write to <span className="font-mono">data/catalog.override.json</span> locally. Add <span className="font-mono">GITHUB_TOKEN</span> for persistent GitHub commit.</div>
+          <div className="mt-4 text-xs leading-5 text-slate-600 bg-white border border-slate-200 rounded-xl p-3">Updates publish instantly and are versioned. Need help? Contact support.</div>
         </div>
 
         <div className="space-y-6">

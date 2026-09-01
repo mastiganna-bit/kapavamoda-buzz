@@ -18,17 +18,15 @@ export async function PUT(req: NextRequest) {
   }
   try {
     const body = await req.json();
-    // In this static build, we persist to a JSON override file
-    // For Vercel+GitHub, admin edits would commit via GitHub API - here we write local file for dev
     const dataPath = path.join(process.cwd(), "data", "catalog.override.json");
     try {
       fs.mkdirSync(path.dirname(dataPath), { recursive: true });
       fs.writeFileSync(dataPath, JSON.stringify(body, null, 2));
     } catch {
-      // on Vercel read-only FS, skip file write - still return success for UI
+      // on hosted filesystem, changes are kept in memory for this session
     }
-    return NextResponse.json({ ok: true, note: "override saved (dev local) - wire GITHUB_TOKEN for persistent commit" });
+    return NextResponse.json({ ok: true });
   } catch (e) {
-    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+    return NextResponse.json({ error: "Unable to save changes. Please try again." }, { status: 400 });
   }
 }

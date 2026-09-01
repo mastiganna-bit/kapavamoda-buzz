@@ -1,10 +1,10 @@
 import { catalog, categories } from "@/lib/catalog";
 
 const catMeta: Record<string, { color: string; bg: string; border: string; accent: string }> = {
-  text: { color: "bg-indigo-600", bg: "bg-indigo-50", border: "border-indigo-200", accent: "text-indigo-700" },
-  image: { color: "bg-fuchsia-600", bg: "bg-fuchsia-50", border: "border-fuchsia-200", accent: "text-fuchsia-700" },
-  video: { color: "bg-cyan-600", bg: "bg-cyan-50", border: "border-cyan-200", accent: "text-cyan-700" },
-  audio: { color: "bg-amber-600", bg: "bg-amber-50", border: "border-amber-200", accent: "text-amber-700" },
+  text: { color: "bg-[#0A2540]", bg: "bg-slate-50", border: "border-slate-200", accent: "text-slate-700" },
+  image: { color: "bg-[#0A2540]", bg: "bg-slate-50", border: "border-slate-200", accent: "text-slate-700" },
+  video: { color: "bg-[#0A8A74]", bg: "bg-emerald-50", border: "border-emerald-200", accent: "text-emerald-700" },
+  audio: { color: "bg-[#0A2540]", bg: "bg-slate-50", border: "border-slate-200", accent: "text-slate-700" },
 };
 
 export default function ModelsPage() {
