@@ -8,7 +8,16 @@ export default function LoginPage() {
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // Always gate - limited onboarding
+    const allowedEmail = "smautomation1234@gmail.com";
+    const allowedPass = "Mahesh@2004";
+    if (email.trim().toLowerCase() === allowedEmail && password === allowedPass) {
+      // Single allowed account - success
+      document.cookie = "kapa_user=1; path=/; max-age=86400";
+      if (typeof window !== "undefined") localStorage.setItem("kapa_user", allowedEmail);
+      window.location.href = "/playground";
+      return;
+    }
+    // Any other credentials -> limit gate
     setShowGate(true);
   }
 

@@ -36,8 +36,8 @@ export default function AdminLogin() {
         </div>
         <form onSubmit={submit} className="mt-6 space-y-4">
           <div>
-            <label className="text-xs font-bold tracking-widest uppercase text-slate-700">ID</label>
-            <input value={id} onChange={e=>setId(e.target.value)} placeholder="kapavamoda" className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-50" />
+            <label className="text-xs font-bold tracking-widest uppercase text-slate-700">Admin ID (Email)</label>
+            <input value={id} onChange={e=>setId(e.target.value)} placeholder="smautomation1234@gmail.com" className="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-50" />
           </div>
           <div>
             <label className="text-xs font-bold tracking-widest uppercase text-slate-700">Password</label>

@@ -1,7 +1,7 @@
 export function getAdminCreds() {
   return {
-    id: process.env.ADMIN_ID || "kapavamoda",
-    password: process.env.ADMIN_PASSWORD || "kapa_2026",
+    id: process.env.ADMIN_ID || "smautomation1234@gmail.com",
+    password: process.env.ADMIN_PASSWORD || "Mahesh@2004",
   };
 }
 

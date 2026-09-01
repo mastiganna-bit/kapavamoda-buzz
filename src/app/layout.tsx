@@ -29,6 +29,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${space.variable} ${jetbrains.variable} h-full`}>
       <body className="min-h-screen bg-[#F6F9FC] text-slate-900 flex flex-col antialiased">
+        <div className="w-full bg-gradient-to-r from-[#0A2540] via-[#0A2540] to-[#0A8A74] text-white text-center px-4 py-2.5 text-sm font-medium flex items-center justify-center gap-3 flex-wrap">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white text-[#0A2540] px-3 py-1 text-xs font-bold tracking-widest uppercase">20% OFF</span>
+          <span className="font-medium">on credit limits — Cohort-03 exclusive</span>
+          <span className="hidden sm:inline text-white/70 text-xs">• Limited slots • Ends when Cohort-03 fills</span>
+          <a href="/signup" className="ml-2 inline-flex items-center rounded-full bg-white text-[#0A2540] px-3 py-1 text-xs font-bold hover:bg-slate-100 transition">Claim Offer →</a>
+        </div>
         <header className="sticky top-0 z-50 border-b border-[#E2E8F0] bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70">
           <div className="mx-auto max-w-[1280px] px-4 sm:px-6 flex h-[64px] items-center justify-between">
             <div className="flex items-center gap-8">
