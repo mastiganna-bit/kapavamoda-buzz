@@ -1,0 +1,99 @@
+export type ModelCategory = "text" | "image" | "video" | "audio" | "embedding";
+
+export type Model = {
+  id: string;
+  display: string;
+  provider: string;
+  family: string;
+  category: ModelCategory;
+  endpoint: string;
+  contextWindow: string;
+  activeParams?: string;
+  totalParams?: string;
+  architecture?: string;
+  modalityIn: string;
+  modalityOut: string;
+  specs: {
+    ttft?: string;
+    tpot?: string;
+    tps?: string;
+    latency?: string;
+    throughput?: string;
+  };
+  pricing: string;
+  status: "current" | "legacy" | "deprecated";
+  bestFor: string;
+  license?: string;
+  notes?: string;
+};
+
+export const catalog: Model[] = [
+  // --- TEXT - OpenAI ---
+  { id: "gpt-5.6-sol", display: "GPT-5.6 Sol", provider: "OpenAI", family: "GPT-5.6", category: "text", endpoint: "gpt-5.6-sol", contextWindow: "400K", activeParams: "—", totalParams: "—", architecture: "Dense + reasoning", modalityIn: "text+image", modalityOut: "text", specs: { ttft: "320ms p50", tps: "145 tok/s" }, pricing: "$2.50/$10.00", status: "current", bestFor: "flagship reasoning, coding, agentic", notes: "Feb 2026 flagship" },
+  { id: "gpt-5.6-terra", display: "GPT-5.6 Terra", provider: "OpenAI", family: "GPT-5.6", category: "text", endpoint: "gpt-5.6-terra", contextWindow: "400K", architecture: "Dense", modalityIn: "text+image", modalityOut: "text", specs: { ttft: "210ms", tps: "210 tok/s" }, pricing: "$1.25/$6.00", status: "current", bestFor: "balance intelligence/cost" },
+  { id: "gpt-5.6-luna", display: "GPT-5.6 Luna", provider: "OpenAI", family: "GPT-5.6", category: "text", endpoint: "gpt-5.6-luna", contextWindow: "400K", architecture: "Dense", modalityIn: "text+image", modalityOut: "text", specs: { ttft: "140ms", tps: "340 tok/s" }, pricing: "$0.50/$2.50", status: "current", bestFor: "cost, high-volume" },
+  { id: "gpt-5.4", display: "GPT-5.4", provider: "OpenAI", family: "GPT-5", category: "text", endpoint: "gpt-5.4", contextWindow: "400K", modalityIn: "text+image", modalityOut: "text", specs: { ttft: "380ms", tps: "98 tok/s" }, pricing: "$2.00/$8.00", status: "legacy", bestFor: "hard reasoning, thinking-pro" },
+  { id: "gpt-5.4-mini", display: "GPT-5.4 Mini", provider: "OpenAI", family: "GPT-5", category: "text", endpoint: "gpt-5.4-mini", contextWindow: "400K", modalityIn: "text+image", modalityOut: "text", specs: { ttft: "160ms", tps: "280 tok/s" }, pricing: "$0.40/$1.80", status: "current", bestFor: "subagents, batch" },
+  { id: "gpt-oss-120b", display: "gpt-oss-120B", provider: "OpenAI", family: "Open-OSS", category: "text", endpoint: "gpt-oss-120b", contextWindow: "128K", architecture: "MoE 120B", modalityIn: "text+image", modalityOut: "text", specs: { ttft: "290ms", tps: "110 tok/s" }, pricing: "open weights", status: "current", bestFor: "self-host, fine-tune", license: "Apache 2.0" },
+  // --- TEXT - Google ---
+  { id: "gemini-2.5-pro", display: "Gemini 2.5 Pro", provider: "Google", family: "Gemini 2.5", category: "text", endpoint: "gemini-2.5-pro", contextWindow: "1M (2M via extension)", architecture: "Dense + adaptive thinking", modalityIn: "text+image+audio+video", modalityOut: "text", specs: { ttft: "410ms", tps: "124 tok/s" }, pricing: "$1.25/$10.00", status: "current", bestFor: "deep reasoning, 1M KV-cache residency", notes: "sunsets Oct 2026 -> 3.5" },
+  { id: "gemini-2.5-flash", display: "Gemini 2.5 Flash", provider: "Google", family: "Gemini 2.5", category: "text", endpoint: "gemini-2.5-flash", contextWindow: "1M", architecture: "Dense", modalityIn: "text+image+audio+video", modalityOut: "text", specs: { ttft: "180ms", tps: "208 tok/s" }, pricing: "$0.30/$2.50", status: "current", bestFor: "low latency, agentic" },
+  { id: "gemini-3.7-flash", display: "Gemini 3.7 Flash", provider: "Google", family: "Gemini 3.x", category: "text", endpoint: "gemini-3.7-flash", contextWindow: "1M", architecture: "Dense", modalityIn: "text+image+audio+video", modalityOut: "text", specs: { ttft: "160ms", tps: "323 tok/s" }, pricing: "$1.50/$7.50", status: "current", bestFor: "multi-step, code, token-efficient" },
+  { id: "gemini-3.5-flash", display: "Gemini 3.5 Flash", provider: "Google", family: "Gemini 3.x", category: "text", endpoint: "gemini-3.5-flash", contextWindow: "1M", architecture: "Dense", modalityIn: "text+image+audio+video", modalityOut: "text", specs: { ttft: "190ms", tps: "201 tok/s" }, pricing: "$1.50/$9.00", status: "current", bestFor: "near-Pro at Flash cost" },
+  { id: "gemini-3.5-flash-lite", display: "Gemini 3.5 Flash-Lite", provider: "Google", family: "Gemini 3.x", category: "text", endpoint: "gemini-3.5-flash-lite", contextWindow: "1M", architecture: "Dense", modalityIn: "text+image", modalityOut: "text", specs: { ttft: "95ms", tps: "346 tok/s" }, pricing: "$0.30/$2.50", status: "current", bestFor: "subagent, high-volume" },
+  // --- TEXT - Anthropic ---
+  { id: "claude-fable-5", display: "Claude Fable 5", provider: "Anthropic", family: "Claude 5", category: "text", endpoint: "claude-fable-5", contextWindow: "1M", activeParams: "—", architecture: "Dense adaptive thinking always-on", modalityIn: "text+image", modalityOut: "text", specs: { ttft: "620ms", tps: "42 tok/s" }, pricing: "$10.00/$50.00", status: "current", bestFor: "long-running agents, highest stakes", notes: "slowest, most capable" },
+  { id: "claude-opus-5", display: "Claude Opus 5", provider: "Anthropic", family: "Claude 5", category: "text", endpoint: "claude-opus-5", contextWindow: "1M", architecture: "Dense adaptive", modalityIn: "text+image", modalityOut: "text", specs: { ttft: "480ms", tps: "68 tok/s" }, pricing: "$5.00/$25.00", status: "current", bestFor: "complex agentic coding, enterprise" },
+  { id: "claude-sonnet-5", display: "Claude Sonnet 5", provider: "Anthropic", family: "Claude 5", category: "text", endpoint: "claude-sonnet-5", contextWindow: "1M", architecture: "Dense adaptive", modalityIn: "text+image", modalityOut: "text", specs: { ttft: "240ms", tps: "145 tok/s" }, pricing: "$2.00/$10.00", status: "current", bestFor: "default production, balance" },
+  { id: "claude-haiku-4.5", display: "Claude Haiku 4.5", provider: "Anthropic", family: "Claude 4.5", category: "text", endpoint: "claude-haiku-4-5-20251001", contextWindow: "200K", architecture: "Dense extended thinking", modalityIn: "text+image", modalityOut: "text", specs: { ttft: "120ms", tps: "280 tok/s" }, pricing: "$1.00/$5.00", status: "current", bestFor: "fastest, classification, routing" },
+  { id: "claude-opus-4.8", display: "Claude Opus 4.8", provider: "Anthropic", family: "Claude 4", category: "text", endpoint: "claude-opus-4-8", contextWindow: "1M", modalityIn: "text+image", modalityOut: "text", specs: { ttft: "520ms", tps: "55 tok/s" }, pricing: "$5.00/$25.00", status: "legacy", bestFor: "legacy pin, 300K batch" },
+  // --- TEXT - Chinese ---
+  { id: "deepseek-v3", display: "DeepSeek-V3", provider: "DeepSeek", family: "DeepSeek", category: "text", endpoint: "deepseek-v3", contextWindow: "128K", totalParams: "671B", activeParams: "37B", architecture: "MoE MLA + DeepSeekMoE, FP8, MTP", modalityIn: "text", modalityOut: "text", specs: { ttft: "310ms", tps: "185 tok/s" }, pricing: "$0.55/$2.19", status: "current", bestFor: "reasoning value, open weights", license: "MIT" },
+  { id: "deepseek-r1", display: "DeepSeek-R1", provider: "DeepSeek", family: "DeepSeek", category: "text", endpoint: "deepseek-r1", contextWindow: "128K", totalParams: "671B", activeParams: "37B", architecture: "MoE reasoning via GRPO", modalityIn: "text", modalityOut: "text", specs: { ttft: "540ms", tps: "72 tok/s" }, pricing: "$0.55/$2.19", status: "current", bestFor: "reasoning baseline, distilled 7B" },
+  { id: "qwen3-235b", display: "Qwen3-235B-A22B", provider: "Alibaba", family: "Qwen3", category: "text", endpoint: "qwen3-235b-a22b", contextWindow: "128K", totalParams: "235B", activeParams: "22B", architecture: "MoE, thinking/non-thinking toggle", modalityIn: "text", modalityOut: "text", specs: { ttft: "360ms", tps: "110 tok/s" }, pricing: "$1.00/$4.00", status: "current", bestFor: "multilingual 100+, C-Eval top", license: "Apache 2.0" },
+  { id: "qwen3-coder-480b", display: "Qwen3-Coder-480B-A35B", provider: "Alibaba", family: "Qwen3", category: "text", endpoint: "qwen3-coder-480b-a35b", contextWindow: "256K (1M extrap.)", totalParams: "480B", activeParams: "35B", architecture: "MoE coder, repo-scale", modalityIn: "text", modalityOut: "text", specs: { ttft: "420ms", tps: "88 tok/s" }, pricing: "$1.20/$4.50", status: "current", bestFor: "agentic coding, front-end" },
+  { id: "kimi-k2", display: "Kimi K2", provider: "Moonshot", family: "Kimi", category: "text", endpoint: "kimi-k2", contextWindow: "128K (2M via 2.5)", totalParams: "1.04T", activeParams: "32B", architecture: "MoE MLA 384 experts/8 active, MuonClip", modalityIn: "text", modalityOut: "text", specs: { ttft: "380ms", tps: "95 tok/s" }, pricing: "$0.60/$2.50", status: "current", bestFor: "lossless long-context, agentic" },
+  { id: "glm-4.5", display: "GLM-4.5", provider: "Zhipu", family: "GLM", category: "text", endpoint: "glm-4.5", contextWindow: "200K", totalParams: "355B", activeParams: "32B", architecture: "MoE GQA 96 heads, deep layers", modalityIn: "text", modalityOut: "text", specs: { ttft: "340ms", tps: "102 tok/s" }, pricing: "$0.50/$1.50", status: "current", bestFor: "tool calling BFCL 77.8%, enterprise JSON" },
+  { id: "glm-4.5-air", display: "GLM-4.5-Air", provider: "Zhipu", family: "GLM", category: "text", endpoint: "glm-4.5-air", contextWindow: "200K", totalParams: "106B", activeParams: "12B", architecture: "MoE", modalityIn: "text", modalityOut: "text", specs: { ttft: "210ms", tps: "165 tok/s" }, pricing: "$0.30/$1.00", status: "current", bestFor: "small agent, open variant" },
+  { id: "minimax-abab7", display: "MiniMax abab7", provider: "MiniMax", family: "MiniMax", category: "text", endpoint: "minimax-abab7", contextWindow: "256K", architecture: "Dense", modalityIn: "text", modalityOut: "text", specs: { ttft: "280ms", tps: "130 tok/s" }, pricing: "$0.80/$3.00", status: "current", bestFor: "voice, multimodal product" },
+
+  // --- IMAGE ---
+  { id: "imagen-4-ultra", display: "Imagen 4 Ultra", provider: "Google", family: "Imagen", category: "image", endpoint: "imagen-4.0-ultra-generate", contextWindow: "—", architecture: "Diffusion", modalityIn: "text", modalityOut: "image", specs: { latency: "6s", throughput: "60 req/min" }, pricing: "$0.04-0.06 /img", status: "current", bestFor: "photorealism, skin/hair, camera-language" },
+  { id: "gpt-image-1.5", display: "GPT Image 1.5", provider: "OpenAI", family: "GPT Image", category: "image", endpoint: "gpt-image-1.5", contextWindow: "—", architecture: "Autoregressive", modalityIn: "text+image", modalityOut: "image", specs: { latency: "12s", throughput: "50 req/min" }, pricing: "$0.07 /HD img", status: "current", bestFor: "prompt adherence, multi-subject, 99% text" },
+  { id: "flux-2-pro", display: "Flux 2 Pro", provider: "Black Forest Labs", family: "Flux", category: "image", endpoint: "flux-2-pro", contextWindow: "—", architecture: "Rectified Flow Transformer 32B", modalityIn: "text+image", modalityOut: "image", specs: { latency: "4s", throughput: "100+ req/min" }, pricing: "$0.025-0.03 /img", status: "current", bestFor: "cost/speed, aesthetic, open-weights friendly" },
+  { id: "flux-1.1-ultra", display: "Flux 1.1 Pro Ultra", provider: "Black Forest Labs", family: "Flux", category: "image", endpoint: "flux-1.1-pro-ultra", contextWindow: "—", architecture: "Rectified flow 12B", modalityIn: "text", modalityOut: "image", specs: { latency: "4.5s", throughput: "—" }, pricing: "$0.04-0.06 /img", status: "current", bestFor: "photoreal value, self-host schnell Apache2.0" },
+  { id: "stable-diffusion-3.5", display: "Stable Diffusion 3.5 Large", provider: "Stability AI", family: "Stable Diffusion", category: "image", endpoint: "stable-diffusion-3.5-large", contextWindow: "—", architecture: "Diffusion Transformer 8B", modalityIn: "text+image", modalityOut: "image", specs: { latency: "8-15s RTX4090", throughput: "local" }, pricing: "free self-host", status: "current", bestFor: "fine-tune, LoRA, ControlNet, local" },
+  { id: "stable-diffusion-4", display: "Stable Diffusion 4", provider: "Stability AI", family: "Stable Diffusion", category: "image", endpoint: "stable-diffusion-4", contextWindow: "—", architecture: "Diffusion Transformer 14B", modalityIn: "text+image", modalityOut: "image", specs: { latency: "8-15s 16GB VRAM", throughput: "4096x4096" }, pricing: "free self-host OpenRAIL-M", status: "current", bestFor: "14B local, 37% hyperparam search cut" },
+  { id: "recraft-v4", display: "Recraft V4.1", provider: "Recraft", family: "Recraft", category: "image", endpoint: "recraft-v4.1", contextWindow: "—", architecture: "Diffusion vector", modalityIn: "text", modalityOut: "image+SVG", specs: { latency: "5s", throughput: "60 req/min" }, pricing: "$0.04 /img", status: "current", bestFor: "design systems, editable SVG" },
+  { id: "ideogram-4", display: "Ideogram 4", provider: "Ideogram", family: "Ideogram", category: "image", endpoint: "ideogram-4", contextWindow: "—", architecture: "Diffusion", modalityIn: "text", modalityOut: "image", specs: { latency: "5s", throughput: "60 req/min" }, pricing: "$0.03 /img", status: "current", bestFor: "typography, posters, open weights" },
+  { id: "midjourney-v8", display: "Midjourney V8.1", provider: "Midjourney", family: "Midjourney", category: "image", endpoint: "midjourney-v8.1", contextWindow: "—", architecture: "Proprietary", modalityIn: "text+image", modalityOut: "image", specs: { latency: "30-60s", throughput: "—" }, pricing: "$10-120/mo sub", status: "current", bestFor: "art direction, Style DNA" },
+  { id: "seedream-5", display: "Seedream 5.0", provider: "ByteDance", family: "Seedream", category: "image", endpoint: "seedream-5-lite", contextWindow: "—", architecture: "Diffusion", modalityIn: "text", modalityOut: "image", specs: { latency: "5s", throughput: "—" }, pricing: "via ModelArk", status: "current", bestFor: "cinematic, semantic prompt" },
+
+  // --- VIDEO ---
+  { id: "veo-3.1", display: "Veo 3.1", provider: "Google", family: "Veo", category: "video", endpoint: "veo-3.1", contextWindow: "—", architecture: "Diffusion + synced audio", modalityIn: "text+image", modalityOut: "video+audio", specs: { latency: "30-60s/60s clip", throughput: "60s max" }, pricing: "$0.03-0.15/s Lite/Full", status: "current", bestFor: "synced dialogue, cinematic, Vertex SLA" },
+  { id: "runway-gen4.5", display: "Runway Gen-4.5", provider: "Runway", family: "Runway", category: "video", endpoint: "runway-gen-4.5", contextWindow: "—", architecture: "Diffusion + control surface", modalityIn: "text+image+video", modalityOut: "video", specs: { latency: "45s/10s", throughput: "10s extendable" }, pricing: "$12-76/mo", status: "current", bestFor: "motion brush, inpainting, benchmark #1" },
+  { id: "kling-3.0", display: "Kling 3.0", provider: "Kuaishou", family: "Kling", category: "video", endpoint: "kling-3.0", contextWindow: "—", architecture: "Diffusion + Omni lip-sync", modalityIn: "text+image", modalityOut: "video+audio", specs: { latency: "40s/15s", throughput: "2min max cont." }, pricing: "$0.10/s $7.99/mo", status: "current", bestFor: "value, 2min cont., image-to-video realism" },
+  { id: "luma-ray-3.2", display: "Luma Ray 3.2", provider: "Luma", family: "Dream Machine", category: "video", endpoint: "luma-ray-3.2", contextWindow: "—", architecture: "Diffusion video-to-video", modalityIn: "text+image+video", modalityOut: "video", specs: { latency: "35s/10s", throughput: "10s" }, pricing: "$7.99-30/mo", status: "current", bestFor: "keyframed transform, HDR 16-bit EXR" },
+  { id: "wan-2.7", display: "Wan 2.7", provider: "Alibaba", family: "Wan", category: "video", endpoint: "wan-2.7", contextWindow: "—", architecture: "Diffusion open weights", modalityIn: "text+image", modalityOut: "video", specs: { latency: "—", throughput: "10s 1080p" }, pricing: "open weights self-host", status: "current", bestFor: "self-host, data-sovereign" },
+  { id: "hailuo-2.3", display: "Hailuo 2.3", provider: "MiniMax", family: "Hailuo", category: "video", endpoint: "hailuo-2.3", contextWindow: "—", architecture: "Diffusion", modalityIn: "text+image", modalityOut: "video", specs: { latency: "30s/10s", throughput: "10s" }, pricing: "$9.99/mo", status: "current", bestFor: "micro-expressions, budget" },
+  { id: "sora-2", display: "Sora 2 Pro", provider: "OpenAI", family: "Sora", category: "video", endpoint: "sora-2-pro", contextWindow: "—", architecture: "Diffusion Transformer", modalityIn: "text+image", modalityOut: "video+audio", specs: { latency: "—", throughput: "25s" }, pricing: "$0.75/s", status: "deprecated", bestFor: "DEPRECATED - sunsets Sep 24 2026" },
+
+  // --- AUDIO ---
+  { id: "elevenlabs-tts", display: "ElevenLabs TTS v2", provider: "ElevenLabs", family: "ElevenLabs", category: "audio", endpoint: "eleven-tts", contextWindow: "—", architecture: "Neural TTS 32 langs", modalityIn: "text", modalityOut: "audio", specs: { latency: "150ms", throughput: "3000+ voices" }, pricing: "$5-99/mo", status: "current", bestFor: "voice synthesis, dubbing, cloning" },
+  { id: "fish-audio-s2", display: "Fish Audio S2 Pro", provider: "Fish Audio", family: "Fish", category: "audio", endpoint: "fish-s2-pro", contextWindow: "—", architecture: "4B 80+ langs", modalityIn: "text", modalityOut: "audio", specs: { latency: "<150ms", throughput: "15K emotion tags" }, pricing: "$15/1M chars", status: "current", bestFor: "cost-effective multilingual" },
+  { id: "suno-v5.5", display: "Suno v5.5", provider: "Suno", family: "Suno", category: "audio", endpoint: "suno-v5.5", contextWindow: "—", architecture: "MusicGen 44.1kHz", modalityIn: "text", modalityOut: "audio", specs: { latency: "8s/2min song", throughput: "—" }, pricing: "$10-30/mo", status: "current", bestFor: "viral songs, vocals 9.5/10" },
+  { id: "udio", display: "Udio v2", provider: "Udio", family: "Udio", category: "audio", endpoint: "udio-v2", contextWindow: "—", architecture: "Diffusion 48kHz", modalityIn: "text+audio", modalityOut: "audio", specs: { latency: "15s", throughput: "48kHz SOTA" }, pricing: "$10-30/mo", status: "current", bestFor: "studio-grade, inpainting, instrumental" },
+  { id: "stable-audio-3", display: "Stable Audio 3 Large", provider: "Stability AI", family: "Stable Audio", category: "audio", endpoint: "stable-audio-3-large", contextWindow: "—", architecture: "Diffusion 2.7B", modalityIn: "text+audio", modalityOut: "audio", specs: { latency: "2s H200", throughput: "6m20s max" }, pricing: "open weights", status: "current", bestFor: "local Mac M4, SFX" },
+  { id: "eleven-music", display: "ElevenLabs Music", provider: "ElevenLabs", family: "ElevenLabs", category: "audio", endpoint: "eleven-music", contextWindow: "—", architecture: "Licensed catalog", modalityIn: "text", modalityOut: "audio", specs: { latency: "10s", throughput: "—" }, pricing: "$5-330/mo", status: "current", bestFor: "commercial-safe, licensed Kobalt/Merlin" },
+];
+
+export const categories = [
+  { id: "text", label: "TEXT GENERATION", desc: "LLMs • Reasoning • MoE • 1M KV-cache • GRPO • MLA", count: catalog.filter(m=>m.category==="text").length },
+  { id: "image", label: "IMAGE GENERATION", desc: "Diffusion • Rectified Flow • Autoregressive • ControlNet", count: catalog.filter(m=>m.category==="image").length },
+  { id: "video", label: "VIDEO GENERATION", desc: "Diffusion + Synced Audio • Motion Brush • HDR • Omni", count: catalog.filter(m=>m.category==="video").length },
+  { id: "audio", label: "AUDIO GENERATION", desc: "TTS • Music • SFX • 48kHz • Dubbing • Voice Cloning", count: catalog.filter(m=>m.category==="audio").length },
+] as const;
+
+export function getModelsByCategory(cat: ModelCategory) {
+  return catalog.filter(m => m.category === cat);
+}
