@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAdminCreds, ADMIN_COOKIE } from "@/lib/auth";
+import { isAdminValid, ADMIN_COOKIE } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {
   const { id, password } = await req.json().catch(() => ({}));
-  const creds = getAdminCreds();
-  if (id === creds.id && password === creds.password) {
+  if (isAdminValid(String(id || ""), String(password || ""))) {
     const res = NextResponse.json({ ok: true });
     res.cookies.set(ADMIN_COOKIE, "1", {
       httpOnly: true,
