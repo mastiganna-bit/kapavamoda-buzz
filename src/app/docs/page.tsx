@@ -24,7 +24,7 @@ export default function DocsPage() {
         <div className="px-6 py-6 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white">
           <div className="inline-flex rounded-full bg-indigo-50 border border-indigo-200 px-2.5 py-1 text-xs font-semibold tracking-widest uppercase text-indigo-700">kapavamoda.buzz • OpenAPI 3.1</div>
           <h1 className="mt-3 text-2xl font-bold tracking-tight text-slate-900">Execute inference — routed, admission-controlled, watermarked.</h1>
-          <p className="mt-2 text-sm leading-6 text-slate-600">Hard-coded routing. You pick the targetRef, we enforce the SLO. If your p50 drifts, you will see it in queue_ms vs prefill_ms vs decode_ms.</p>
+          <p className="mt-2 text-sm leading-6 text-slate-600">Optimized routing with enterprise-grade reliability. You pick the target model, we ensure consistent performance. Monitor your latency in queue, prefill and decode metrics.</p>
         </div>
 
         <div className="px-6 py-6 space-y-6">

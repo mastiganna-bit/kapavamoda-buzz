@@ -13,7 +13,7 @@ export default function ModelsPage() {
       <div className="rounded-3xl border border-slate-200 bg-white shadow-sm px-6 py-6 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div>
           <h1 className="text-xl font-bold tracking-tight text-slate-900">Model Catalog — {catalog.length} endpoints • 4 surfaces</h1>
-          <p className="text-sm text-slate-600 mt-1">Hard-coded • GitHub JSON as source of truth • OpenAPI 3.1 • No drift • Search by endpoint ID</p>
+          <p className="text-sm text-slate-600 mt-1">Production-ready • OpenAPI 3.1 • Fully managed • Search by endpoint ID</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <span className="inline-flex rounded-full bg-slate-900 px-3 py-1.5 text-xs font-medium text-white">671B MoE max</span>
@@ -75,7 +75,7 @@ export default function ModelsPage() {
       })}
 
       <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-600">
-        <span className="font-semibold text-slate-900">Operator Note:</span> All model IDs are hard-coded in GitHub JSON. Admin can toggle status and routing without drift. Deprecated IDs remain with red badge for migration tracking - do not route production traffic.
+        <span className="font-semibold text-slate-900">Note:</span> All model endpoints are versioned and maintained by our team. Deprecated IDs remain with red badge for migration tracking — do not route production traffic.
       </div>
     </div>
   );

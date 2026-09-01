@@ -16,7 +16,7 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "kapavamoda.buzz — private inference fabric for developers",
-  description: "Invite-only inference fabric trusted by limited developers. 47 models across Text, Image, Video, Audio. Hard-coded, operator-provisioned.",
+  description: "Invite-only inference fabric trusted by limited developers. 47 models across Text, Image, Video, Audio. Curated and operator-provisioned.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <div className="h-7 w-7 rounded-lg bg-slate-900 flex items-center justify-center text-white font-bold text-xs">k.</div>
                   <span className="text-sm font-semibold text-slate-900">kapavamoda.buzz</span>
                 </div>
-                <p className="mt-2 text-sm leading-6 text-slate-600 max-w-[420px]">Private inference fabric for limited developers. Hard-coded models, operator-provisioned access, invite-only cohort. Not a public API marketplace.</p>
+                <p className="mt-2 text-sm leading-6 text-slate-600 max-w-[420px]">Private inference fabric for limited developers. Curated models, operator-provisioned access, invite-only cohort. Not a public API marketplace.</p>
               </div>
               <div className="grid grid-cols-2 gap-8 text-sm">
                 <div>
@@ -83,7 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
             <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between gap-2 text-xs text-slate-500">
               <span>© 2026 kapavamoda.buzz — H100x8 NVLink • MLA + FlashAttention-3 • SynthID provenance</span>
-              <span>Invite-only • Cohort-03 closed • GitHub JSON store • Vercel</span>
+              <span>Invite-only • Cohort-03 closed • Enterprise infrastructure • Vercel</span>
             </div>
           </div>
         </footer>

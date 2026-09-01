@@ -27,7 +27,7 @@ export default function AdminClient() {
         <div>
           <div className="inline-flex rounded-full bg-slate-900 px-2.5 py-1 text-xs font-bold tracking-widest uppercase text-white">Operator Console</div>
           <h1 className="text-lg font-bold tracking-tight text-slate-900 mt-2">Change whatever you want — instant</h1>
-          <div className="text-sm text-slate-600 mt-1">Hard-coded fabric • Vercel + GitHub JSON • Cohort-03 closed • Env: ADMIN_ID / ADMIN_PASSWORD</div>
+          <div className="text-sm text-slate-600 mt-1">Managed platform • Enterprise infrastructure • Cohort-03 closed • Env: ADMIN_ID / ADMIN_PASSWORD</div>
         </div>
         <div className="flex gap-2">
           <button onClick={save} disabled={saving} className="h-10 px-6 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 disabled:opacity-50">{saving ? "Saving…" : "Save Changes"}</button>

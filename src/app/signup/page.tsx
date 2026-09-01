@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function SignupPage() {
   const [form, setForm] = useState({ name: "", email: "", useCase: "" });
   const [showGate, setShowGate] = useState(false);
-  const limitReached = true; // hard-coded limited
+  const limitReached = true; // cohort limit
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -46,7 +46,7 @@ export default function SignupPage() {
             </div>
             <div className="grid grid-cols-2 gap-3 text-xs">
               <div className="rounded-xl bg-slate-50 border border-slate-200 p-3"><div className="font-semibold text-slate-900">Invite-only</div><div className="text-slate-600 mt-1">Manual review • 24-48h</div></div>
-              <div className="rounded-xl bg-slate-50 border border-slate-200 p-3"><div className="font-semibold text-slate-900">Hard-coded</div><div className="text-slate-600 mt-1">No self-serve keys</div></div>
+              <div className="rounded-xl bg-slate-50 border border-slate-200 p-3"><div className="font-semibold text-slate-900">Managed Access</div><div className="text-slate-600 mt-1">Operator provisioned</div></div>
             </div>
             <button type="submit" className="w-full h-11 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition">Request Access →</button>
             <div className="text-center text-sm text-slate-600">Already have an <span className="font-mono text-xs bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded">x-kapa-key</span>? <a href="/login" className="font-medium text-indigo-600 hover:text-indigo-700">Sign in</a></div>

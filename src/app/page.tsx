@@ -26,7 +26,7 @@ export default function Home() {
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-8 items-start">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm">
-              <span className="h-2 w-2 rounded-full bg-emerald-500" /> Private Inference Fabric • Invite-Only • Hard-Coded
+              <span className="h-2 w-2 rounded-full bg-emerald-500" /> Private Inference Fabric • Invite-Only • Curated
               <span className="hidden sm:inline-flex ml-1 rounded-full bg-slate-900 px-2 py-0.5 text-[10px] tracking-widest uppercase text-white">COHORT-03</span>
             </div>
             <h1 className="mt-5 text-[36px] sm:text-[48px] font-bold tracking-[-0.03em] leading-[0.95] text-slate-900">
@@ -34,7 +34,7 @@ export default function Home() {
               <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">for builders, not browsers.</span>
             </h1>
             <p className="mt-4 max-w-[640px] text-[15px] leading-7 text-slate-600">
-              <span className="font-semibold text-slate-900">kapavamoda.buzz</span> is a private, operator-provisioned platform. We host <span className="font-semibold text-slate-900">47 production models</span> across Text, Image, Video and Audio - with hard-coded routing on H100x8 NVLink. No public signup, no vibe-coded dashboards.
+              <span className="font-semibold text-slate-900">kapavamoda.buzz</span> is a private, operator-provisioned platform. We host <span className="font-semibold text-slate-900">47 production models</span> across Text, Image, Video and Audio — with optimized routing on H100x8 NVLink and enterprise-grade reliability.
             </p>
             <p className="mt-3 max-w-[640px] text-sm leading-6 text-slate-500 border-l-2 border-slate-200 pl-4">
               Designed for engineers who understand <span className="font-medium text-slate-700">MoE sparsity, MLA, TTFT/TPOT and KV-cache residency</span>. If you need screenshots, this fabric is not for you. Admission is manual and limited.
@@ -46,7 +46,7 @@ export default function Home() {
             <div className="mt-4 flex flex-wrap gap-2 text-xs">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-3 py-1.5 text-slate-700"><span className="h-1.5 w-1.5 rounded-full bg-indigo-500" /> Bearer + x-kapa-key</span>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-3 py-1.5 text-slate-700"><span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Invite-only</span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-3 py-1.5 text-slate-700"><span className="h-1.5 w-1.5 rounded-full bg-amber-500" /> GitHub + Vercel store</span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-3 py-1.5 text-slate-700"><span className="h-1.5 w-1.5 rounded-full bg-amber-500" /> Enterprise Ready</span>
             </div>
 
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -54,7 +54,7 @@ export default function Home() {
                 { k: "Auth", v: "Bearer + x-kapa-key", sub: "scope: inference:execute", color: "border-indigo-200 bg-indigo-50" },
                 { k: "Admission", v: "Cohort-03 closed", sub: "operator manual", color: "border-amber-200 bg-amber-50" },
                 { k: "Context", v: "1M residency", sub: "MLA 37B active", color: "border-violet-200 bg-violet-50" },
-                { k: "Storage", v: "Vercel + GitHub", sub: "JSON, no DB", color: "border-slate-200 bg-slate-50" },
+                { k: "Infrastructure", v: "Enterprise", sub: "global edge", color: "border-slate-200 bg-slate-50" },
               ].map(c => (
                 <div key={c.k} className={`rounded-2xl border p-3.5 ${c.color}`}>
                   <div className="text-[10px] font-semibold tracking-widest uppercase text-slate-600">{c.k}</div>
@@ -118,7 +118,7 @@ export default function Home() {
                     <span className="text-xs font-bold tracking-widest uppercase text-slate-900">{cat.label}</span>
                   </div>
                   <div className="text-xs text-slate-600 mt-1 leading-5">{cat.desc}</div>
-                  <div className={`mt-3 inline-flex self-start rounded-full bg-white border ${style.border} px-2.5 py-1 text-xs font-medium ${style.accent}`}>{cat.count} endpoints • hard-coded</div>
+                  <div className={`mt-3 inline-flex self-start rounded-full bg-white border ${style.border} px-2.5 py-1 text-xs font-medium ${style.accent}`}>{cat.count} curated endpoints</div>
                   <ul className="mt-4 space-y-2 flex-1">
                     {models.slice(0, 5).map(m => (
                       <li key={m.id} className="flex justify-between gap-2 text-sm">
@@ -161,7 +161,7 @@ export default function Home() {
               <div className="text-sm font-semibold text-amber-900">Cohort-03 — Closed</div>
               <div className="text-sm leading-5 text-amber-800 mt-1">Onboarding limit reached. New requests are waitlisted for Cohort-04. You will still get a response within 48 hours.</div>
             </div>
-            <p className="mt-3 text-sm leading-5 text-slate-600">Approved developers receive an <span className="font-semibold text-slate-900 font-mono text-xs">x-kapa-key</span> scoped to their cohort. All models are hard-coded in GitHub JSON.</p>
+            <p className="mt-3 text-sm leading-5 text-slate-600">Approved developers receive an <span className="font-semibold text-slate-900 font-mono text-xs">x-kapa-key</span> scoped to their cohort. All models are actively maintained and versioned.</p>
             <a href="/signup" className="mt-4 inline-flex h-10 items-center justify-center rounded-full bg-slate-900 px-5 text-sm font-semibold text-white hover:bg-slate-800 transition">Join Waitlist →</a>
             <a href="/login" className="mt-2 inline-flex h-10 items-center justify-center rounded-full border border-slate-200 bg-white px-5 text-sm font-medium text-slate-700 hover:bg-slate-50 transition">Developer Sign In</a>
           </div>

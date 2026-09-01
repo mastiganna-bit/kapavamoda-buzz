@@ -27,7 +27,7 @@ export default function AdminLogin() {
       <div className="text-center">
         <div className="mx-auto h-10 w-10 rounded-xl bg-slate-900 flex items-center justify-center text-white font-bold text-sm">k.</div>
         <h1 className="mt-4 text-xl font-bold tracking-tight text-slate-900">Operator Console</h1>
-        <p className="mt-1 text-sm text-slate-600">Admin login — hard-coded ID + password (Vercel env)</p>
+        <p className="mt-1 text-sm text-slate-600">Admin login — secure operator access (Vercel env)</p>
       </div>
       <div className="mt-6 rounded-3xl border border-slate-200 bg-white shadow-sm p-6">
         <div className="rounded-2xl bg-slate-50 border border-slate-200 px-4 py-3 text-xs leading-5 text-slate-600">
