@@ -11,13 +11,14 @@ export default function LoginPage() {
     const allowedEmail = "smautomation1234@gmail.com";
     const allowedPass = "Mahesh@2004";
     if (email.trim().toLowerCase() === allowedEmail && password === allowedPass) {
-      // Single allowed account - success
       document.cookie = "kapa_user=1; path=/; max-age=86400";
-      if (typeof window !== "undefined") localStorage.setItem("kapa_user", allowedEmail);
-      window.location.href = "/playground";
+      if (typeof window !== "undefined") {
+        localStorage.setItem("kapa_user", allowedEmail);
+        localStorage.setItem("kapa_credits", "0.00");
+      }
+      window.location.href = "/dashboard";
       return;
     }
-    // Any other credentials -> limit gate
     setShowGate(true);
   }
 

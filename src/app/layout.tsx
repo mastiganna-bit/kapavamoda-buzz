@@ -49,14 +49,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </span>
               </a>
               <nav className="hidden lg:flex items-center gap-1">
-                <a href="/models" className="px-3 py-2 text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-[8px] transition">Models</a>
-                <a href="/docs" className="px-3 py-2 text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-[8px] transition">Docs</a>
+                <a href="/dashboard" className="px-3 py-2 text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-[8px] transition">Dashboard</a>
+                <a href="/keys" className="px-3 py-2 text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-[8px] transition">API Keys</a>
                 <a href="/playground" className="px-3 py-2 text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-[8px] transition">Playground</a>
+                <a href="/usage" className="px-3 py-2 text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-[8px] transition">Usage</a>
+                <a href="/billing" className="px-3 py-2 text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-[8px] transition">Billing</a>
+                <a href="/models" className="px-3 py-2 text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-[8px] transition">Models</a>
               </nav>
             </div>
             <div className="flex items-center gap-2">
+              <span className="hidden xl:flex items-center gap-2 rounded-full bg-white border border-slate-200 px-3 py-1.5 text-[11px] font-medium text-slate-700">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Credits $0.00
+              </span>
               <span className="hidden xl:flex items-center gap-2 rounded-full bg-[#0A8A74]/10 border border-[#0A8A74]/20 px-3 py-1.5 text-[11px] font-medium text-[#0A8A74]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#0A8A74]" /> Fabric Online • p50 TTFT 186ms
+                <span className="h-1.5 w-1.5 rounded-full bg-[#0A8A74]" /> Fabric Online
               </span>
               <a href="/signup" className="hidden sm:inline-flex h-9 items-center rounded-[8px] border border-slate-200 bg-white px-4 text-[13px] font-medium text-slate-700 hover:bg-slate-50 transition">Request Access</a>
               <a href="/login" className="h-9 inline-flex items-center rounded-[8px] bg-[#0A2540] px-5 text-[13px] font-semibold text-white hover:bg-[#0B2F4A] transition shadow-[0_1px_3px_rgba(0,0,0,.08)]">Sign In</a>
@@ -74,13 +80,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
                 <p className="mt-2 text-sm leading-6 text-slate-600 max-w-[420px]">Private inference fabric for limited developers. Curated models, operator-provisioned access, invite-only cohort. Not a public API marketplace.</p>
               </div>
-              <div className="grid grid-cols-2 gap-8 text-sm">
+              <div className="grid grid-cols-3 gap-8 text-sm">
                 <div>
-                  <div className="text-xs font-semibold tracking-widest uppercase text-slate-900">Platform</div>
+                  <div className="text-xs font-semibold tracking-widest uppercase text-slate-900">Build</div>
                   <ul className="mt-3 space-y-2 text-slate-600">
-                    <li><a href="/models" className="hover:text-slate-900">Model Catalog</a></li>
-                    <li><a href="/docs" className="hover:text-slate-900">Documentation</a></li>
                     <li><a href="/playground" className="hover:text-slate-900">Playground</a></li>
+                    <li><a href="/keys" className="hover:text-slate-900">API Keys</a></li>
+                    <li><a href="/docs" className="hover:text-slate-900">Documentation</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <div className="text-xs font-semibold tracking-widest uppercase text-slate-900">Manage</div>
+                  <ul className="mt-3 space-y-2 text-slate-600">
+                    <li><a href="/dashboard" className="hover:text-slate-900">Dashboard</a></li>
+                    <li><a href="/usage" className="hover:text-slate-900">Usage</a></li>
+                    <li><a href="/billing" className="hover:text-slate-900">Billing</a></li>
+                    <li><a href="/models" className="hover:text-slate-900">Model Catalog</a></li>
                   </ul>
                 </div>
                 <div>
